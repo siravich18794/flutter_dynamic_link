@@ -36,8 +36,9 @@ class _ProductCardState extends State<ProductCard> {
             margin: EdgeInsets.all(5),
             padding: EdgeInsets.all(2),
             decoration: BoxDecoration(
-                color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-                    .withOpacity(0.5),
+                color: Colors.black.withOpacity(0.5),
+                // Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+                //     .withOpacity(0.5),
                 //
                 borderRadius: BorderRadius.circular(3),
                 boxShadow: [

@@ -1,46 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../constants/category_enum.dart';
 
 class CategoryTag extends StatelessWidget {
   final String tag;
 
   const CategoryTag({Key? key, required this.tag}) : super(key: key);
 
-  Text getTag(String tag) {
-    switch (tag) {
-      case 'shirt':
-        return Text('Shirt', style: TextStyle(color: Colors.white));
-      case 'shoes':
-        return Text('Shoes', style: TextStyle(color: Colors.white));
-      case 'pants':
-        return Text('Pants', style: TextStyle(color: Colors.white));
-      default:
-        return Text('Other', style: TextStyle(color: Colors.white));
-    }
+  Text textTag(String s) {
+    return Text(s,
+        style:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.w500));
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Icons.category_rounded,
-          size: 20,
-          color: Colors.blue,
-        ),
-        SizedBox(
+        const Icon(Icons.category_rounded, size: 20, color: Colors.blue),
+        const SizedBox(
           width: 5,
         ),
         Container(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: Colors.blueAccent,
+            color: tag == 'shirt'
+                ? Colors.blue
+                : tag == 'pants'
+                    ? const Color.fromARGB(255, 104, 185, 107)
+                    : Colors.orange,
             borderRadius: BorderRadius.circular(5),
           ),
-          child: getTag(tag),
+          child: tag == 'shirt'
+              ? textTag('Shirt')
+              : tag == 'pants'
+                  ? textTag('Pants')
+                  : textTag('Shoes'),
         ),
       ],
     );

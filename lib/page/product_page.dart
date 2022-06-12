@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:uni_link/widgets/category_button.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:uni_link/data/product_data.dart';
@@ -45,7 +46,8 @@ class ProductPage extends StatelessWidget {
                               productName: result[index]['name'],
                               price: result[index]['price'],
                               imageUrl: result[index]['imageUrl'],
-                              uuid: Uuid().v4(),
+                              productId: result[index]['id'],
+                              category: result[index]['category'],
                             )));
               },
               child: ProductCard(
@@ -82,12 +84,26 @@ class ProductPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(bottom: 20),
-                child: ElevatedButton(
-                  onPressed: () async =>
-                      await FirebaseDynamicLinkServices.createDynamicLink(
-                          true, 'men-page', Category.shirt.name),
-                  child: const Text('Copy Link For MenPage'),
+                padding: EdgeInsets.all(30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CategoryButton(
+                      pageName: pageName,
+                      categoryText: 'Shirt Link',
+                      category: Category.shirt.name,
+                    ),
+                    CategoryButton(
+                      pageName: pageName,
+                      categoryText: 'Pants Link',
+                      category: Category.pants.name,
+                    ),
+                    CategoryButton(
+                      pageName: pageName,
+                      categoryText: 'Shoes Link',
+                      category: Category.shoes.name,
+                    )
+                  ],
                 ),
               ),
             ],

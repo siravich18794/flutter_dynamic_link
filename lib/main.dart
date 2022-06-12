@@ -11,10 +11,22 @@ import 'package:uni_link/page/product_page.dart';
 import 'package:uni_link/temp/user_list_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// var a;
+// var b;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // iOS requires you run in release mode to test dynamic links ("flutter run --release").
   await Firebase.initializeApp();
+
+  // final PendingDynamicLinkData? initialLink =
+  //     await FirebaseDynamicLinks.instance.getInitialLink();
+
+  // a = initialLink;
+  // b = initialLink?.link;
+
+  // print("Inital Link : $initialLink");
+  // print("Inital Link Path: ${initialLink?.link}");
 
   runApp(
     MaterialApp(
@@ -60,6 +72,9 @@ class _MainScreenState extends State<_MainScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  // Container(
+                  //     child:
+                  //         b != null ? Text(b.toString()) : Text('Not found')),
                   ButtonBar(
                     alignment: MainAxisAlignment.center,
                     children: <Widget>[

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'dart:math';
 import 'package:uuid/uuid.dart';
+
+import '../components/firebase_dynamic_link.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage(
@@ -11,20 +10,22 @@ class ProductDetailPage extends StatelessWidget {
       required this.productName,
       required this.price,
       required this.imageUrl,
-      required this.uuid})
+      required this.productId,
+      required this.category})
       : super(key: key);
 
   final String productName;
   final int price;
   final String imageUrl;
-  final String uuid;
+  final String productId;
+  final String category;
 
   String generateRandomString(int length) {
-    final _random = Random();
-    const _availableChars =
+    final random = Random();
+    const availableChars =
         'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
     final randomString = List.generate(length,
-            (index) => _availableChars[_random.nextInt(_availableChars.length)])
+            (index) => availableChars[random.nextInt(availableChars.length)])
         .join();
 
     return randomString;
@@ -89,7 +90,7 @@ class ProductDetailPage extends StatelessWidget {
                       Row(
                         children: [
                           Container(
-                            child: Icon(Icons.price_check_rounded),
+                            child: Icon(Icons.attach_money_rounded),
                           ),
                           SizedBox(
                             width: 10,
@@ -105,7 +106,7 @@ class ProductDetailPage extends StatelessWidget {
                               margin: EdgeInsets.only(left: 180),
                               child: IconButton(
                                 icon: Icon(Icons.copy),
-                                onPressed: () {
+                                onPressed: () async {
                                   Future.delayed(
                                       Duration.zero,
                                       () => showDialog(
@@ -117,6 +118,9 @@ class ProductDetailPage extends StatelessWidget {
                                                   content: Text("Copy Link"));
                                             },
                                           ));
+                                  await FirebaseDynamicLinkServices
+                                      .createDynamicLink(true, 'men-page',
+                                          category, productId);
                                 },
                               ),
                             ),
