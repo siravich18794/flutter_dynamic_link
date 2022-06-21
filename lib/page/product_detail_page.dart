@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uni_link/widgets/copy_button.dart';
 import 'dart:math';
-import 'package:uuid/uuid.dart';
-
-import '../components/firebase_dynamic_link.dart';
 
 class ProductDetailPage extends StatelessWidget {
   const ProductDetailPage(
@@ -102,29 +100,10 @@ class ProductDetailPage extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Container(
-                              margin: EdgeInsets.only(left: 180),
-                              child: IconButton(
-                                icon: Icon(Icons.copy),
-                                onPressed: () async {
-                                  Future.delayed(
-                                      Duration.zero,
-                                      () => showDialog(
-                                            context: context,
-                                            builder: (context) {
-                                              return AlertDialog(
-                                                  // Retrieve the text the that user has entered by using the
-                                                  // TextEditingController.
-                                                  content: Text("Copy Link"));
-                                            },
-                                          ));
-                                  await FirebaseDynamicLinkServices
-                                      .createDynamicLink(true, 'men-page',
-                                          category, productId);
-                                },
-                              ),
-                            ),
-                          )
+                              child: CopyButton(
+                            category: category,
+                            productId: productId,
+                          ))
                         ],
                       ),
                       SizedBox(

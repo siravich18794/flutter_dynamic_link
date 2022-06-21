@@ -28,9 +28,6 @@ class FirebaseDynamicLinkServices {
     FirebaseDynamicLinks.instance.onLink
         .listen((PendingDynamicLinkData dynamicLinkData) {
       print("Pending Dynamic Link : ${dynamicLinkData.link}");
-      print("Pending Dynamic Link Path : ${dynamicLinkData.link.path}");
-      print(
-          "Pending Dynamic Link Path : ${dynamicLinkData.link.queryParameters['category']}");
 
       handleDynamicLink(context, dynamicLinkData);
     }).onError((error) {
@@ -97,16 +94,19 @@ class FirebaseDynamicLinkServices {
     final DynamicLinkParameters parameters = DynamicLinkParameters(
       uriPrefix: dynamicLink,
       link: Uri.parse(link),
-      androidParameters: const AndroidParameters(
+      androidParameters: AndroidParameters(
+        fallbackUrl: Uri.parse(
+            "https://www.google.com"), // handling when the android app isn't installed
         packageName: 'com.example.uni_link',
         minimumVersion: 0,
       ),
-      iosParameters: IOSParameters(
-        fallbackUrl: Uri.parse(dynamicLink),
-        bundleId: 'com.example.uniLink',
-        appStoreId: '123456789',
-        minimumVersion: '1.0.1',
-      ),
+      // iosParameters: IOSParameters(
+      //   //fallbackUrl: Uri.parse(dynamicLink),
+      //   fallbackUrl: Uri.parse('www.google.com'),
+      //   bundleId: 'com.example.uniLink',
+      //   appStoreId: '123456789',
+      //   minimumVersion: '1.0.1',
+      // ),
     );
 
     Uri url;

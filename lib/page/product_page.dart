@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:uni_link/widgets/category_button.dart';
-import 'package:uuid/uuid.dart';
 
 import 'package:uni_link/data/product_data.dart';
 import 'package:uni_link/page/product_detail_page.dart';
