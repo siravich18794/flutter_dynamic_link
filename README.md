@@ -1,7 +1,13 @@
 # Setup
 
-1. git clone
-2. flutter run
+- สามารถ clone แล้วใช้คำสั่ง flutter run ได้เลยครับ
+
+# Packages ที่ใช้เพิ่มเติม
+
+firebase_dynamic_links: ^4.2.5
+firebase_core: ^1.17.1
+cloud_firestore: ^3.1.17
+url_launcher: ^6.1.3
 
 # Overview
 
