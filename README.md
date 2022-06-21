@@ -1,16 +1,14 @@
-# uni_link
+# Setup
 
-A new Flutter project.
+- สามารถ clone แล้วใช้คำสั่ง flutter run ได้เลยครับ
 
-## Getting Started
+# Packages ที่ใช้เพิ่มเติม
 
-This project is a starting point for a Flutter application.
+- firebase_dynamic_links: ^4.2.5
+- firebase_core: ^1.17.1
+- cloud_firestore: ^3.1.17
+- url_launcher: ^6.1.3
 
-A few resources to get you started if this is your first Flutter project:
+# Overview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- เป็น App สำหรับ test การใช้งานของ dynamic link ครับ
