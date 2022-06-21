@@ -4,10 +4,10 @@
 
 # Packages ที่ใช้เพิ่มเติม
 
-firebase_dynamic_links: ^4.2.5
-firebase_core: ^1.17.1
-cloud_firestore: ^3.1.17
-url_launcher: ^6.1.3
+- firebase_dynamic_links: ^4.2.5
+- firebase_core: ^1.17.1
+- cloud_firestore: ^3.1.17
+- url_launcher: ^6.1.3
 
 # Overview
 
