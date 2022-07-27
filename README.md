@@ -11,4 +11,4 @@
 
 # Overview
 
-- เป็น App สำหรับ test การใช้งานของ dynamic link ครับ
+- เป็น App สำหรับ test การใช้งานของ dynamic link ครับ สามารถดูข้อมูลเพิ่มเติมได้จาก slide ที่แนบไปใน github นี้ครับ
